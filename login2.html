@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Login</title>
+</head>
+<body style="align-items: center">
+    <center> 
+    <div class="class container">
+        <div class="card">
+            <div class="button">
+                <button type="button" class="btn btn-warning btn-lg ms-6" style="border-style:ridge;border-color: black;font-size:10px;" ><b><a href="home.html">Home</a></b></button>
+            </div>
+        <br><br><br>
+        <h1><b>Login</b></h1>
+        <form action="#">
+            <div class="form-group">
+                <br><br>
+                <label for="email"><h3><b>Email</b></h3></label>
+                <input type="email" class="from-control" id="email" name="email" placeholder="Enter the email">
+            </div>
+            <div class="form-group">
+                <label for="password"><h3><b>Password</b></h3></label>
+                <input type="password" class="from-control" id="password" name="password" placeholder="Enter the password">
+            </div>
+            <div class="text center">
+                <button type="button" onclick="saveData()" class="btn btn-primary" id="save_btn">Login</button>
+                <button type="reset" class="btn btn-warning" id="">Reset</button>
+            </div>
+            <div class="text center">
+                <h3>If you don't have a account then click on <a href="login1.html">Sign up</a></h3>
+            </div>
+        </form>
+    </div></center> 
+</body>
+<script>
+    function saveData(){
+        email=document.getElementById("email").value;
+        password=document.getElementById("password").value;
+
+        let user_records=new Array();
+        user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+        if(user_records.some((v)=>{
+            return v.email==email && v.password==password
+        })){
+            alert("Login Sucessfull")
+        }
+        else{
+            alert("Login Fail. Please! Enter Valid Email & Password")
+            }
+        
+    }
+</script>
+
+
+
+
+
+
+
+</html>
